@@ -16,12 +16,17 @@ cd dream26
 # Experiment 1: Platform capability profiling (~30 minutes)
 ./submit_exp1.sh
 
+# Experiment 1b: Enhanced platform capability with energy profiling (~1 hour)
+./submit_exp1b.sh
+
 # Experiment 2: Baseline simulation with profiling (~2 hours)
 ./submit_exp2.sh
 
 # Monitor jobs
 squeue -u $USER
 ```
+
+**Recommendation**: Run **Experiment 1b** (enhanced) instead of Experiment 1 for complete Section 4 analysis.
 
 **Note:** Helper scripts (`submit_exp1.sh`, `submit_exp2.sh`) automatically create directories and organize outputs.
 
@@ -60,7 +65,17 @@ The two experiments use different Python environments:
 
 ### Experiment Scripts
 - **`experiment1_platform_capability.slurm`** - Platform benchmarking job (uses system PyTorch)
+- **`experiment1b_enhanced_platform_capability.slurm`** - **Enhanced** platform profiling with energy analysis (recommended)
 - **`experiment2_baseline_simulation.slurm`** - Baseline Twin-B simulation with profiling (uses project venv)
+
+### What's New in Experiment 1b?
+Experiment 1b addresses all gaps from Experiment 1 for complete Section 4 analysis:
+- ✅ **Fixed GPU power monitoring** (gpu_metrics_load.csv issue resolved)
+- ✅ **Small transfer testing** (1B to 1MB, including 37-byte transfers from Section 4)
+- ✅ **Energy cost analysis** (joules per operation type)
+- ✅ **Mixed workload profiling** (compute + transfer patterns)
+
+See `EXPERIMENT1B_ENHANCEMENTS.md` for detailed analysis.
 
 ### Analysis
 - **`analyze_baseline.py`** - Automated analysis script for experiment 2
