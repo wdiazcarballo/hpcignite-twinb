@@ -37,24 +37,24 @@ RESULTS_DIR=exp1_${SLURM_JOB_ID}
 # Note: Directory must already exist for SLURM to write .out/.err files there
 
 # ---------------------------
-# Load environment
+# Load environment (use system-provided PyTorch)
 # ---------------------------
-module load cray-python/3.10.10
-module load cuda/11.8
+module load Mamba
 
 echo "Loaded modules:"
-echo "  - cray-python/3.10.10"
-echo "  - cuda/11.8"
+echo "  - Mamba/23.11.0-0"
 echo ""
 
-# Activate shared virtual environment
-VENV_PATH=/project/lt200291-ignite/Project_chomwong/.venv
-if [ -f $VENV_PATH/bin/activate ]; then
-    source $VENV_PATH/bin/activate
-    echo "Activated shared virtual environment from $VENV_PATH"
+# Activate system PyTorch conda environment
+echo "Activating system PyTorch environment..."
+source activate pytorch-2.2.2
+
+if [ $? -eq 0 ]; then
+    echo "✓ Activated pytorch-2.2.2 conda environment"
 else
-    echo "ERROR: Shared virtual environment not found at $VENV_PATH/bin/activate"
-    echo "Please ensure pwongta has set up the shared environment."
+    echo "ERROR: Failed to activate pytorch-2.2.2 environment"
+    echo "Available environments:"
+    conda env list
     exit 1
 fi
 
@@ -101,22 +101,14 @@ echo "========== PYTHON ENVIRONMENT =========="
 python --version
 echo ""
 echo "Key packages:"
-pip list | grep -E "torch|numpy|pandas|PyYAML" || echo "Some packages not found"
+conda list | grep -E "torch|numpy|pandas|pyyaml" || echo "Some packages not found"
 echo ""
-
-# Check if torch is available
-if ! python -c "import torch" 2>/dev/null; then
-    echo "=========================================="
-    echo "WARNING: PyTorch (torch) is not installed!"
-    echo "=========================================="
-    echo "Installing PyTorch to shared environment..."
-    pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
-    echo ""
-    echo "PyTorch installed. Verifying..."
-    python -c "import torch; print(f'PyTorch version: {torch.__version__}')"
-    python -c "import torch; print(f'CUDA available: {torch.cuda.is_available()}')"
-    echo ""
-fi
+echo "PyTorch verification:"
+python -c "import torch; print(f'  PyTorch version: {torch.__version__}')"
+python -c "import torch; print(f'  CUDA available: {torch.cuda.is_available()}')"
+python -c "import torch; print(f'  CUDA version: {torch.version.cuda}')"
+python -c "import torch; print(f'  Device count: {torch.cuda.device_count()}')"
+echo ""
 
 # ---------------------------
 # Test 1: GPU Compute Capability

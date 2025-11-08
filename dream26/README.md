@@ -43,11 +43,24 @@ cd dream26
 python analyze_baseline.py exp2_XXXXX
 ```
 
+## Environment Setup
+
+The two experiments use different Python environments:
+
+- **Experiment 1**: Uses system-provided `pytorch-2.2.2` conda environment
+  - Pre-configured by LANTA administrators
+  - Includes PyTorch with CUDA support
+  - Faster startup, no installation needed
+
+- **Experiment 2**: Uses project-specific virtual environment at `/project/lt200291-ignite/Project_chomwong/.venv`
+  - Includes Twin-B dependencies (Mesa, EnergyPlus API, etc.)
+  - Auto-installs PyTorch if missing
+
 ## Files in This Directory
 
 ### Experiment Scripts
-- **`experiment1_platform_capability.slurm`** - Platform benchmarking job
-- **`experiment2_baseline_simulation.slurm`** - Baseline Twin-B simulation with profiling
+- **`experiment1_platform_capability.slurm`** - Platform benchmarking job (uses system PyTorch)
+- **`experiment2_baseline_simulation.slurm`** - Baseline Twin-B simulation with profiling (uses project venv)
 
 ### Analysis
 - **`analyze_baseline.py`** - Automated analysis script for experiment 2
