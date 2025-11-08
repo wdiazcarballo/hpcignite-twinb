@@ -1,7 +1,7 @@
 #!/bin/bash
-#SBATCH --job-name=exp2-baseline-twinb
-#SBATCH --output=logs/exp2_baseline_%j.out
-#SBATCH --error=logs/exp2_baseline_%j.err
+#SBATCH --job-name=exp2-baseline
+#SBATCH --output=exp2_%j.out
+#SBATCH --error=exp2_%j.err
 #SBATCH --time=02:00:00
 #SBATCH --nodes=1
 #SBATCH --ntasks=2
@@ -22,7 +22,8 @@
 #   - Measure energy consumption during data exchange
 #   - Establish baseline for comparison with optimized scenarios
 #
-# Based on DREAM'26 submission - Regular semester weekday scenario (903 occupants)
+# Based on DREAM'26 submission - Regular semester weekday scenario
+# Resources: 2 GPUs, 4 CPUs per GPU, 64GB RAM
 # ==============================================================================
 
 echo "=========================================="
@@ -32,18 +33,31 @@ echo "Started: $(date)"
 echo "=========================================="
 
 # ---------------------------
-# Create output directories
+# Project folder
 # ---------------------------
-mkdir -p logs
-mkdir -p experiment2_results
-RESULTS_DIR=experiment2_results/baseline_${SLURM_JOB_ID}
+PROJECT_DIR=/project/lt200291-ignite/Project_chomwong/project
+
+# ---------------------------
+# Create output directory (simple structure in dream26)
+# ---------------------------
+RESULTS_DIR=$PROJECT_DIR/dream26/exp2_${SLURM_JOB_ID}
 mkdir -p $RESULTS_DIR
 
 # ---------------------------
 # Load environment
 # ---------------------------
 module load cray-python/3.10.10
-source ~/venv/bin/activate
+
+# Activate shared virtual environment
+VENV_PATH=/project/lt200291-ignite/Project_chomwong/.venv/mesa_env
+if [ -f $VENV_PATH/bin/activate ]; then
+    source $VENV_PATH/bin/activate
+    echo "Activated shared mesa_env virtual environment from $VENV_PATH"
+else
+    echo "ERROR: Shared virtual environment not found at $VENV_PATH"
+    echo "Please ensure pwongta has set up the shared environment."
+    exit 1
+fi
 
 # ---------------------------
 # EnergyPlus paths
@@ -62,9 +76,8 @@ export TORCH_NCCL_TIMEOUT=1200
 export TORCH_DISTRIBUTED_DEBUG=DETAIL
 
 # ---------------------------
-# Project folder
+# Change to project directory
 # ---------------------------
-PROJECT_DIR=/project/lt200291-ignite/Project_chomwong/project
 cd $PROJECT_DIR
 
 # ---------------------------

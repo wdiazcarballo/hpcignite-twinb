@@ -1,11 +1,11 @@
 #!/bin/bash
-#SBATCH --job-name=exp1-platform-capability
-#SBATCH --output=logs/exp1_platform_%j.out
-#SBATCH --error=logs/exp1_platform_%j.err
+#SBATCH --job-name=exp1-platform
+#SBATCH --output=exp1_%j.out
+#SBATCH --error=exp1_%j.err
 #SBATCH --time=00:30:00
 #SBATCH --nodes=1
 #SBATCH --ntasks=2
-#SBATCH --cpus-per-task=8
+#SBATCH --cpus-per-task=4
 #SBATCH --gres=gpu:2
 #SBATCH -p gpu
 #SBATCH --mem=64G
@@ -20,6 +20,8 @@
 #   - NCCL communication overhead
 #   - Memory availability and allocation patterns
 #   - Baseline performance metrics for comparison
+#
+# Resources: 2 GPUs, 4 CPUs per GPU, 64GB RAM
 # ==============================================================================
 
 echo "=========================================="
@@ -29,26 +31,26 @@ echo "Started: $(date)"
 echo "=========================================="
 
 # ---------------------------
-# Create output directories
+# Create output directory (simple structure)
 # ---------------------------
-mkdir -p logs
-mkdir -p experiment1_results
-RESULTS_DIR=experiment1_results/run_${SLURM_JOB_ID}
+RESULTS_DIR=exp1_${SLURM_JOB_ID}
 mkdir -p $RESULTS_DIR
 
 # ---------------------------
 # Load environment
 # ---------------------------
 module load cray-python/3.10.10
-source ~/venv/bin/activate
 
-# ---------------------------
-# EnergyPlus paths
-# ---------------------------
-EP_HOME=/project/lt200291-ignite/Project_chomwong/energyplus/EnergyPlus-25.1.0-1c11a3d85f-Linux-CentOS7.9.2009-x86_64
-export PATH=$EP_HOME:$PATH
-export PYTHONPATH=$PYTHONPATH:$EP_HOME
-export ENERGYPLUS_EXE=$EP_HOME/energyplus
+# Activate shared virtual environment
+VENV_PATH=/project/lt200291-ignite/Project_chomwong/.venv/mesa_env
+if [ -f $VENV_PATH/bin/activate ]; then
+    source $VENV_PATH/bin/activate
+    echo "Activated shared mesa_env virtual environment from $VENV_PATH"
+else
+    echo "ERROR: Shared virtual environment not found at $VENV_PATH"
+    echo "Please ensure pwongta has set up the shared environment."
+    exit 1
+fi
 
 # ---------------------------
 # Environment info collection
@@ -60,6 +62,7 @@ echo "SLURM Job ID: $SLURM_JOB_ID"
 echo "Number of nodes: $SLURM_JOB_NUM_NODES"
 echo "Number of tasks: $SLURM_NTASKS"
 echo "CPUs per task: $SLURM_CPUS_PER_TASK"
+echo "Total CPUs: $((SLURM_NTASKS * SLURM_CPUS_PER_TASK))"
 echo "GPUs allocated: $SLURM_GPUS"
 echo "Memory allocated: $SLURM_MEM_PER_NODE MB"
 echo ""
@@ -92,7 +95,7 @@ echo "========== PYTHON ENVIRONMENT =========="
 python --version
 echo ""
 echo "Key packages:"
-pip list | grep -E "torch|mesa|numpy|pandas|PyYAML"
+pip list | grep -E "torch|numpy|pandas|PyYAML" || echo "Some packages not found"
 echo ""
 
 # ---------------------------
@@ -161,8 +164,8 @@ if __name__ == "__main__":
 EOF
 
 cd $RESULTS_DIR
-python test_gpu_compute.py
-cd -
+python test_gpu_compute.py || echo "ERROR: GPU compute test failed"
+cd ..
 
 echo ""
 
@@ -240,8 +243,8 @@ if __name__ == "__main__":
 EOF
 
 cd $RESULTS_DIR
-python test_memory_bandwidth.py
-cd -
+python test_memory_bandwidth.py || echo "ERROR: Memory bandwidth test failed"
+cd ..
 
 echo ""
 
@@ -342,8 +345,8 @@ if __name__ == "__main__":
 EOF
 
 cd $RESULTS_DIR
-torchrun --standalone --nproc_per_node=2 test_ddp_communication.py
-cd -
+torchrun --standalone --nproc_per_node=2 test_ddp_communication.py || echo "ERROR: DDP communication test failed (torchrun not available)"
+cd ..
 
 echo ""
 

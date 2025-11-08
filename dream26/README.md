@@ -26,19 +26,19 @@ squeue -u $USER
 ### 2. Check Results
 
 ```bash
-# Check experiment 1 output
-tail -f logs/exp1_platform_XXXXX.out
+# Check experiment 1 output (simple structure - no subdirectories!)
+tail -f dream26/exp1_XXXXX.out
 
 # Check experiment 2 output
-tail -f logs/exp2_baseline_XXXXX.out
+tail -f dream26/exp2_XXXXX.out
 ```
 
 ### 3. Analyze Results
 
 ```bash
-# Run analysis on experiment 2 results
+# Run analysis on experiment 2 results (simple paths!)
 cd dream26
-python analyze_baseline.py ../experiment2_results/baseline_XXXXX
+python analyze_baseline.py exp2_XXXXX
 ```
 
 ## Files in This Directory
@@ -61,7 +61,7 @@ python analyze_baseline.py ../experiment2_results/baseline_XXXXX
 
 ### Experiment 1 Outputs
 ```
-../experiment1_results/run_<job_id>/
+dream26/exp1_<job_id>/
 ├── gpu_compute_results.json
 ├── memory_bandwidth_results.json
 ├── ddp_communication_results.json
@@ -71,7 +71,7 @@ python analyze_baseline.py ../experiment2_results/baseline_XXXXX
 
 ### Experiment 2 Outputs
 ```
-../experiment2_results/baseline_<job_id>/
+dream26/exp2_<job_id>/
 ├── EXPERIMENT_SUMMARY.md
 ├── twinb_baseline_profile.nsys-rep  ← Open in Nsight Systems GUI
 ├── cuda_api_summary.csv
