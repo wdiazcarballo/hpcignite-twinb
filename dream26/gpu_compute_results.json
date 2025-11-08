@@ -1,0 +1,24 @@
+{
+  "cuda_available": true,
+  "device_count": 2,
+  "device_name": "NVIDIA A100-SXM4-40GB",
+  "cuda_version": "11.8",
+  "compute_performance": {
+    "size_1024": {
+      "avg_time_sec": 0.0001687765121459961,
+      "gflops": 12723.829996808861
+    },
+    "size_2048": {
+      "avg_time_sec": 0.0012443780899047852,
+      "gflops": 13805.988166598574
+    },
+    "size_4096": {
+      "avg_time_sec": 0.009234428405761719,
+      "gflops": 14883.320053274385
+    },
+    "size_8192": {
+      "avg_time_sec": 0.05929043292999268,
+      "gflops": 18544.503277185562
+    }
+  }
+}
