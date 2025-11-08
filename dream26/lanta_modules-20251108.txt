@@ -1,0 +1,294 @@
+
+-------------------------- /opt/cray/pe/lmod/modulefiles/mpi/crayclang/17.0/ofi/1.0/cray-mpich/8.0 --------------------------
+   cray-hdf5-parallel/1.14.3.5    cray-mpixlate/1.0.7    cray-parallel-netcdf/1.12.3.17
+
+-------------------------------- /opt/cray/pe/lmod/modulefiles/comnet/crayclang/17.0/ofi/1.0 --------------------------------
+   cray-mpich-abi/8.1.32 (D)    cray-mpich-abi/9.0.0    cray-mpich/8.1.32 (L,D)    cray-mpich/9.0.0
+
+----------------------------------- /opt/cray/pe/lmod/modulefiles/compiler/crayclang/17.0 -----------------------------------
+   cray-hdf5/1.14.3.5    cray-libsci/25.03.0 (L,D)
+
+---------------------------------------- /opt/cray/pe/lmod/modulefiles/mix_compilers ----------------------------------------
+   aocc-mixed/3.2.0    cce-mixed/19.0.0      (D)    gcc-native-mixed/14.2        (D)    intel-oneapi-mixed/2022.2.1
+   aocc-mixed/4.0.0    gcc-mixed/11.2.0             intel-classic-mixed/2022.2.1        intel-oneapi-mixed/2023.1.0
+   cce-mixed/15.0.0    gcc-mixed/12.2.0      (D)    intel-classic-mixed/2023.1.0 (D)    nvidia-mixed/22.7
+   cce-mixed/15.0.1    gcc-native-mixed/12.3        intel-mixed/2022.2.1                nvidia-mixed/23.3
+   cce-mixed/16.0.1    gcc-native-mixed/13.2        intel-mixed/2023.1.0                nvidia-mixed/24.11          (D)
+
+-------------------------------------- /opt/cray/pe/lmod/modulefiles/perftools/25.03.0 --------------------------------------
+   perftools-lite-events    perftools-lite-hbm      perftools-lite       perftools
+   perftools-lite-gpu       perftools-lite-loops    perftools-preload
+
+----------------------------------------- /opt/cray/pe/lmod/modulefiles/net/ofi/1.0 -----------------------------------------
+   cray-openshmemx/11.5.7    cray-openshmemx/11.5.8    cray-openshmemx/11.6.1    cray-openshmemx/11.7.4 (D)
+
+-------------------------------------- /opt/cray/pe/lmod/modulefiles/cpu/x86-milan/1.0 --------------------------------------
+   cray-fftw/3.3.10.3    cray-fftw/3.3.10.5    cray-fftw/3.3.10.10 (D)
+
+--------------------------------------- /lustrefs/disk/modules/easybuild/modules/all ----------------------------------------
+   ADIOS2/2.9.1-cpeCray-23.03                            PostgreSQL/15.3                                    (D)
+   ADIOS2/2.9.1-cpeIntel-23.09                           QuantumESPRESSO/7.2-libxc-6.1.0-cpu                (D)
+   ADIOS2/2.10.2-cpeCray-25.03                           QuantumESPRESSO/7.2-libxc-6.1.0-NV24.11-CUDA12.6
+   ADIOS2/2.10.2-cpeIntel-25.03                (D)       QuantumESPRESSO/7.3.1-libxc-6.2.2-cpu
+   ATK/2.38.0-cpeCray-23.03                              QuantumESPRESSO/7.3.1-libxc-6.2.2-NV24.11-CUDA12.6
+   ATK/2.38.0-cpeIntel-23.09                   (D)       RAxML-NG/1.2.0-cpeGNU-23.03
+   Amber/2022-cpeGNU-CUDA-11.7                           SAMtools/1.17-cpeGNU-23.03
+   Apptainer/1.1.6                                       SAMtools/1.22.1-cpeGNU-25.03                       (D)
+   Armadillo/12.4.0-cpeCray-23.03                        SCOTCH/7.0.3-cpeCray-23.03
+   Armadillo/12.4.0-cpeIntel-23.09             (D)       SCOTCH/7.0.3-cpeIntel-23.09                        (D)
+   AutoDock-vina/1.2.5                                   SDL2/2.28.5-cpeCray-23.03
+   Autoconf/2.71                                         SDL2/2.28.5-cpeIntel-23.09                         (D)
+   Autoconf/2.72                               (D)       SLEPc/3.20.2-cpeCray-23.03
+   Automake/1.16.5                                       SLEPc/3.20.2-cpeIntel-23.09                        (D)
+   Automake/1.18                               (D)       SPAdes/3.15.4-cpeGNU-23.03
+   Autotools/20220317                                    SQLite/3.41.2-cpeCray-23.03
+   Autotools/20250527                          (D)       SQLite/3.41.2-cpeIntel-23.09
+   BCFtools/1.17-cpeGNU-23.03                            SQLite/3.41.2                                      (D)
+   BCFtools/1.22-cpeGNU-25.03                  (D)       SWIG/4.0.2-cpeGNU-23.03
+   BEDTools/2.30.0-cpeGNU-23.03                          SWIG/4.1.1-cray-python-3.9.13.1
+   BLAST+/2.14.0-cpeGNU-23.03                            SWIG/4.1.1-cray-python-3.10.10                     (D)
+   BLASTDB/v5_sep2024                                    SYCL/2023.1.0-cpeIntel-23.09-CUDA-12.0
+   BLASTDB/v5                                  (D)       SZ/2.1.12.5-cpeCray-23.03
+   BWA/0.7.17-cpeGNU-23.03                               SZ/2.1.12.5-cpeCray-25.03
+   BamTools/2.5.2-cpeGNU-23.03                           SZ/2.1.12.5-cpeIntel-23.09
+   Beast/2.7.5-cpeGNU-23.03                              SZ/2.1.12.5-cpeIntel-25.03                         (D)
+   Bison/3.8.2                                           SpectrA/1.0.1
+   Blosc/1.21.5-cpeCray-23.03                            SuiteSparse/7.6.1-cpeCray-23.03
+   Blosc/1.21.5-cpeIntel-23.09                 (D)       SuiteSparse/7.6.1-cpeIntel-23.09                   (D)
+   Boost/1.79.0-cpeGNU-23.03                             SuperLU_DIST/8.2.1-cpeCray-23.03
+   Boost/1.81.0-cpeGNU-23.03                             SuperLU_DIST/8.2.1-cpeIntel-23.09                  (D)
+   Boost/1.82.0-cpeCray-23.03                            Tcl/8.6.13-cpeIntel-23.09
+   Boost/1.82.0-cpeIntel-23.09                 (D)       Tcl/8.6.13                                         (D)
+   Bowtie/1.3.1-cpeGNU-23.03                             Tk/8.6.13-cpeCray-23.03
+   Bowtie2/2.5.1-cpeGNU-23.03                            Tk/8.6.13-cpeIntel-23.09                           (D)
+   Brotli/1.0.9-cpeGNU-23.03                             Trimmomatic/0.39-Java-17
+   Brotli/1.1.0-cpeCray-23.03                            UDUNITS2/2.2.28
+   Brotli/1.1.0-cpeIntel-23.09                 (D)       VASP/6.3.2-GNU-cpu_vtst                            (D)
+   C-Blosc2/2.10.5-cpeCray-23.03                         VASP/6.3.2-Intel-cpu_vtst
+   C-Blosc2/2.10.5-cpeIntel-23.09                        VASP/6.3.2-NV23.3-CUDA12.0_vtst
+   C-Blosc2/2.19.0-cpeCray-25.03                         VASP/6.4.3-GNU-cpu_vtst
+   C-Blosc2/2.19.0-cpeIntel-25.03              (D)       VASP/6.4.3-Intel-cpu_vtst
+   CFITSIO/4.2.0-cpeCray-23.03                           VASP/6.4.3-NV23.3-CUDA12.0_vtst
+   CFITSIO/4.2.0-cpeIntel-23.09                (D)       VASP/6.5.1-GNU-cpu_vtst
+   CGAL/5.5.2-cpeCray-23.03                              VASP/6.5.1-Intel-cpu_vtst
+   CGAL/5.5.2-cpeIntel-23.09                   (D)       VASP/6.5.1-NV23.3-CUDA12.0_vtst
+   CLHEP/2.4.7.1-cpeIntel-23.09                          VCFtools/0.1.16-cpeGNU-23.03
+   CMake/3.22.1                                          WPS/4.6-DM-cpeCray-25.03
+   CMake/3.26.4                                          WRF/4.7.1-DMSM-cpeCray-25.03
+   CMake/3.31.8                                (D)       WRFchem/4.7.1-DM-cpeCray-25.03
+   CrayNVHPC/23.03                                       Wayland/1.22.0-cpeCray-23.03
+   DB/18.1.40-cpeGNU-23.03                               Wayland/1.22.0-cpeIntel-23.09                      (D)
+   DB/18.1.40                                  (D)       X11/23.03-cpeGNU-23.03
+   DBus/1.15.8                                           X11/20231019-cpeCray-23.03
+   ESMF/8.4.2-cpeCray-23.03                              X11/20231019-cpeIntel-23.09                        (D)
+   ESMF/8.4.2-cpeIntel-23.09                   (D)       XZ/5.4.3-cpeCray-23.03
+   EasyBuild/4.7.0                                       XZ/5.4.3-cpeGNU-23.03
+   EasyBuild/4.9.4                             (D)       XZ/5.4.3-cpeIntel-23.09
+   Eigen/3.4.0                                           XZ/5.8.1-cpeCray-25.03
+   FDS/6.8.0-cpeIntel-23.09                              XZ/5.8.1-cpeGNU-25.03
+   FFmpeg/6.0.1-cpeCray-23.03                            XZ/5.8.1-cpeIntel-25.03                            (D)
+   FFmpeg/6.0.1-cpeIntel-23.09                 (D)       Xerces-C++/3.2.4
+   FastQC/0.11.9-Java-11                                 Yasm/1.3.0
+   FortranGIS/2.5-cpeCray-23.03                          arpack-ng/3.9.1-cpeCray-23.03
+   FortranGIS/2.5-cpeIntel-23.09               (D)       arpack-ng/3.9.1-cpeIntel-23.09                     (D)
+   FreeXL/1.0.6-cpeCray-23.03                            assimp/5.3.1-cpeCray-23.03
+   FreeXL/1.0.6-cpeIntel-23.09                 (D)       assimp/5.3.1-cpeIntel-23.09                        (D)
+   FriBidi/1.0.13-cpeCray-23.03                          at-spi2-atk/2.38.0-cpeCray-23.03
+   FriBidi/1.0.13-cpeIntel-23.09               (D)       at-spi2-atk/2.38.0-cpeIntel-23.09                  (D)
+   GATK/4.4.0.0-Java-17                                  at-spi2-core/2.50.0-cpeCray-23.03
+   GATK/4.6.2.0-Java-17                        (D)       at-spi2-core/2.50.0-cpeIntel-23.09                 (D)
+   GDAL/3.6.4-cpeCray-23.03                              aws-ofi-nccl/1.6.0+cuda11.7
+   GDAL/3.6.4-cpeIntel-23.09                   (D)       aws-ofi-nccl/1.6.0+cuda12.6                        (D)
+   GEOS/3.11.2-cpeCray-23.03                             beagle-lib/4.0.0-cpeGNU-23.03
+   GEOS/3.11.2-cpeIntel-23.09                  (D)       binutils/2.40
+   GLM/1.0.1-cpeCray-23.03                               binutils/2.42                                      (D)
+   GLM/1.0.1-cpeIntel-23.09                    (D)       bzip2/1.0.8-cpeCray-23.03
+   GLib/2.78.1-cpeCray-23.03                             bzip2/1.0.8-cpeCray-25.03
+   GLib/2.78.1-cpeIntel-23.09                  (D)       bzip2/1.0.8-cpeGNU-23.03
+   GMP/6.2.1-cpeCray-23.03                               bzip2/1.0.8-cpeGNU-25.03
+   GMP/6.2.1-cpeGNU-23.03                                bzip2/1.0.8-cpeIntel-23.09
+   GMP/6.2.1-cpeIntel-23.09                    (D)       bzip2/1.0.8-cpeIntel-25.03                         (D)
+   GObject-Introspection/1.78.1-cpeCray-23.03            cURL/8.1.2
+   GObject-Introspection/1.78.1-cpeIntel-23.09 (D)       cURL/8.11.1                                        (D)
+   GROMACS/2022.5-GNU-11.2-CUDA-11.7                     cairo/1.18.0-cpeCray-23.03
+   GROMACS/2023.2-cpeGNU-23.09-CUDA-12.0                 cairo/1.18.0-cpeIntel-23.09                        (D)
+   GROMACS/2023.5-cpeGNU-23.09-CUDA-12.0                 canu/2.2-cpeGNU-23.03
+   GROMACS/2024.6-cpeGNU-25.03-CUDA-12.6                 cpeCray/23.03
+   GROMACS/2025.3-cpeGNU-25.03-CUDA-12.6       (D)       cpeCray/25.03                                      (D)
+   GSL/2.7-cpeCray-23.03                                 cpeGNU/23.03
+   GSL/2.7-cpeGNU-23.03                                  cpeGNU/25.03                                       (D)
+   GSL/2.7-cpeIntel-23.09                                cpeIntel/23.09
+   GSL/2.8-cpeCray-25.03                                 cpeIntel/25.03                                     (D)
+   GSL/2.8-cpeGNU-25.03                                  ecCodes/2.30.0-cpeCray-23.03
+   GSL/2.8-cpeIntel-25.03                      (D)       ecCodes/2.30.0-cpeIntel-23.09                      (D)
+   Gaussian/16.C.02-AVX2                                 expat/2.5.0-cpeGNU-23.03
+   GenericIO/20230908-cpeCray-23.03                      expat/2.5.0                                        (D)
+   GenericIO/20230908-cpeIntel-23.09           (D)       flex/2.6.4
+   Gmsh/4.12.2-cpeCray-23.03-NoGUI                       fontconfig/2.14.2-cpeCray-23.03
+   Go/1.17.6                                             fontconfig/2.14.2-cpeGNU-23.03
+   HDF-EOS/2.20-cpeCray-23.03                            fontconfig/2.14.2-cpeIntel-23.09                   (D)
+   HDF-EOS/2.20-cpeIntel-23.09                 (D)       freetype/2.13.0-cpeGNU-23.03
+   HDF/4.2.15-cpeCray-23.03                              freetype/2.13.2-cpeCray-23.03
+   HDF/4.2.15-cpeIntel-23.09                   (D)       freetype/2.13.2-cpeIntel-23.09                     (D)
+   HTSlib/1.17-cpeGNU-23.03                              gettext/0.21.1
+   HTSlib/1.22.1-cpeGNU-25.03                  (D)       gettext/0.25                                       (D)
+   HYPRE/2.28.0-cpeCray-23.03                            giflib/5.2.1-cpeIntel-23.09
+   HYPRE/2.28.0-cpeIntel-23.09                 (D)       git-lfs/3.2.0
+   HarfBuzz/8.2.2-cpeCray-23.03                          googletest/1.14.0
+   HarfBuzz/8.2.2-cpeIntel-23.09               (D)       gperf/3.1
+   ICU/73.1-cpeCray-23.03                                gperftools/2.10-cpeCray-23.03
+   ICU/73.1-cpeGNU-23.03                                 gperftools/2.10-cpeIntel-23.09                     (D)
+   ICU/73.1-cpeIntel-23.09                     (D)       groff/1.22.4-cpeGNU-23.03
+   Imath/3.1.8-cpeCray-23.03                             groff/1.23.0                                       (D)
+   Imath/3.1.8-cpeIntel-23.09                  (D)       hwloc/2.9.2-cpeGNU-23.03
+   InterProScan/5.75-106.0                               intltool/0.51.0
+   JasPer/1.900.1-cpeCray-23.03                          jbigkit/2.1-cpeCray-23.03
+   JasPer/1.900.1-cpeCray-25.03                          jbigkit/2.1-cpeIntel-23.09                         (D)
+   JasPer/1.900.1-cpeGNU-23.03                           libGLU/9.0.3-cpeCray-23.03
+   JasPer/1.900.1-cpeIntel-23.09                         libGLU/9.0.3-cpeIntel-23.09                        (D)
+   JasPer/1.900.1-cpeIntel-25.03               (D)       libaec/1.0.6-cpeCray-23.03
+   Java/11.0.16                                (11)      libaec/1.0.6-cpeIntel-23.09                        (D)
+   Java/17.0.4                                 (17)      libdeflate/1.18-cpeCray-23.03
+   Java/21.0.8                                 (D:21)    libdeflate/1.18-cpeIntel-23.09                     (D)
+   KaHIP/3.15-cpeCray-23.03                              libdrm/2.4.117-cpeCray-23.03
+   KaHIP/3.15-cpeIntel-23.09                   (D)       libdrm/2.4.117-cpeIntel-23.09                      (D)
+   LAME/3.100                                            libepoxy/1.5.10-cpeCray-23.03
+   LLVM/16.0.6+nvptx                                     libepoxy/1.5.10-cpeIntel-23.09                     (D)
+   LLVM/16.0.6                                 (D)       libffi/3.4.4
+   LMDB/0.9.29-cpeGNU-23.03                              libgeotiff/1.7.1-cpeCray-23.03
+   LibTIFF/4.5.0-cpeCray-23.03                           libgeotiff/1.7.1-cpeIntel-23.09                    (D)
+   LibTIFF/4.5.0-cpeIntel-23.09                (D)       libglvnd/1.7.0-cpeCray-23.03
+   M4/1.4.19                                             libglvnd/1.7.0-cpeIntel-23.09                      (D)
+   MAFFT/7.505-cpeGNU-23.03-with-extensions              libiconv/1.16-cpeCray-23.03
+   MAFFT/7.525-cpeGNU-25.03-with-extensions    (D)       libiconv/1.16-cpeIntel-23.09                       (D)
+   METIS/5.1.0-cpeCray-23.03                             libjpeg-turbo/2.1.5.1-cpeCray-23.03
+   METIS/5.1.0-cpeIntel-23.09                  (D)       libjpeg-turbo/2.1.5.1-cpeGNU-23.03
+   MPC/1.3.1-cpeCray-23.03                               libjpeg-turbo/2.1.5.1-cpeIntel-23.09               (D)
+   MPC/1.3.1-cpeIntel-23.09                    (D)       libpciaccess/0.17-cpeGNU-23.03
+   MPFR/4.2.0-cpeCray-23.03                              libpciaccess/0.17                                  (D)
+   MPFR/4.2.0-cpeIntel-23.09                   (D)       libpng/1.6.39-cpeCray-23.03
+   MUMPS/5.6.2-cpeCray-23.03-Shared                      libpng/1.6.39-cpeGNU-23.03
+   MUMPS/5.6.2-cpeCray-23.03                             libpng/1.6.39-cpeIntel-23.09
+   MUMPS/5.6.2-cpeIntel-23.09-Shared                     libpng/1.6.49-cpeCray-25.03
+   MUMPS/5.6.2-cpeIntel-23.09                  (D)       libpng/1.6.49-cpeIntel-25.03                       (D)
+   Mako/1.2.4-cray-python-3.9.13.1                       libreadline/8.2-cpeGNU-23.03
+   Mako/1.2.4-cray-python-3.10.10              (D)       libreadline/8.2                                    (D)
+   Mamba/23.11.0-0                                       libtirpc/1.3.3-cpeCray-23.03
+   Mesa/23.1.9-cpeCray-23.03                             libtirpc/1.3.3-cpeIntel-23.09                      (D)
+   Mesa/23.1.9-cpeIntel-23.09                  (D)       libtool/2.4.7
+   Meson/1.3.1-cray-python-3.9.13.1                      libtool/2.5.4                                      (D)
+   Meson/1.3.1-cray-python-3.10.10             (D)       libunwind/1.7.0-cpeCray-23.03
+   Miniforge3/25.3.0-3                                   libunwind/1.7.0-cpeIntel-23.09                     (D)
+   MrBayes/3.2.7-cpeGNU-23.03                            libxml2/2.11.4-cpeCray-23.03
+   NASM/2.16.01                                          libxml2/2.11.4-cpeGNU-23.03
+   NLopt/2.7.1-cpeCray-23.03                             libxml2/2.11.4-cpeIntel-23.09                      (D)
+   NLopt/2.7.1-cpeIntel-23.09                  (D)       lz4/1.9.4-cpeCray-23.03
+   Nextflow/22.10.6                                      lz4/1.9.4-cpeGNU-23.03
+   Nextflow/23.04.2                                      lz4/1.9.4-cpeIntel-23.09
+   Nextflow/24.10.3                                      lz4/1.10.0-cpeCray-25.03
+   Nextflow/25.04.6                            (D)       lz4/1.10.0-cpeGNU-25.03
+   Ninja/1.11.1                                          lz4/1.10.0-cpeIntel-25.03                          (D)
+   OSPRay/3.1.0-cpeCray-23.03                            minimap2/2.26-cpeGNU-23.03
+   OSPRay/3.1.0-cpeIntel-23.09                 (D)       nccl/2.18.1-1+cuda11.0
+   OpenCASCADE/7.8.1-cpeCray-23.03                       ncurses/6.1
+   OpenCASCADE/7.8.1-cpeIntel-23.09            (D)       ncurses/6.4
+   OpenEXR/3.1.5-cpeCray-23.03                           ncurses/6.5                                        (D)
+   OpenEXR/3.1.5-cpeIntel-23.09                (D)       nlohmann_json/3.11.3
+   OpenFOAM/v2212-cpeCray-23.03                (D)       numactl/2.0.16-cpeGNU-23.03
+   OpenFOAM/10-cpeCray-23.03                             pixman/0.42.2
+   OpenJPEG/2.5.0-cpeCray-23.03                          pkgconf/1.9.5
+   OpenJPEG/2.5.0-cpeIntel-23.09               (D)       pkgconf/2.3.0                                      (D)
+   OpenMPI/4.1.2                                         tbb/2021.10.0-cpeGNU-23.03
+   OpenSSL/1.1.1                                         termcap/1.3.1
+   OpenSSL/3                                   (D)       use-local-tmp/1.0
+   OpenTURNS/1.22-cpeCray-23.03                          x264/20231019
+   OpenTURNS/1.22-cpeIntel-23.09               (D)       x265/3.5
+   PCRE/8.45-cpeGNU-23.03                                xorg-macros/1.20.0-cpeGNU-23.03
+   PCRE2/10.42                                           xorg-macros/1.20.0                                 (D)
+   PDAL/2.7.1-cpeCray-23.03                              xprop/1.2.6-cpeCray-23.03
+   PETSc/3.20.5-cpeCray-23.03                            xprop/1.2.6-cpeIntel-23.09                         (D)
+   PETSc/3.20.5-cpeIntel-23.09                 (D)       xxHash/0.8.2
+   PROJ/9.2.0-cpeCray-23.03                              zfp/1.0.0-cpeCray-23.03
+   PROJ/9.2.0-cpeIntel-23.09                   (D)       zfp/1.0.0-cpeIntel-23.09
+   Pango/1.51.0-cpeCray-23.03                            zfp/1.0.1-cpeCray-25.03
+   Pango/1.51.0-cpeIntel-23.09                 (D)       zfp/1.0.1-cpeIntel-25.03                           (D)
+   ParFlow/3.12.0-cpeCray-23.03                          zlib/1.2.11-cpeGNU-23.03
+   ParMETIS/4.0.3-cpeCray-23.03                          zlib/1.2.12
+   ParMETIS/4.0.3-cpeIntel-23.09               (D)       zlib/1.2.13
+   ParaView/5.12.1-cpeCray-23.03-NoGUI                   zlib/1.3.1                                         (D)
+   ParallelIO/2.6.2-cpeIntel-23.09                       zstd/1.5.5-cpeCray-23.03
+   Perl/5.36.0-cpeGNU-23.03                              zstd/1.5.5-cpeGNU-23.03
+   Perl/5.38.2                                           zstd/1.5.5-cpeIntel-23.09
+   Perl/5.40.2                                 (D)       zstd/1.5.7-cpeCray-25.03
+   PostgreSQL/15.3-cpeCray-23.03                         zstd/1.5.7-cpeIntel-25.03                          (D)
+   PostgreSQL/15.3-cpeIntel-23.09
+
+------------------------------------------ /opt/cray/pe/lmod/lmod/modulefiles/Core ------------------------------------------
+   lmod    settarg
+
+-------------------------------------------- /opt/cray/pe/lmod/modulefiles/core ---------------------------------------------
+   PrgEnv-aocc/8.3.3            cpe/23.03                        cray-pals/1.2.11              gcc/12.2.0             (D)
+   PrgEnv-aocc/8.4.0            cpe/23.09                        cray-pals/1.2.12     (D)      gdb4hpc/4.14.6
+   PrgEnv-aocc/8.6.0   (D)      cpe/25.03               (D)      cray-pmi/6.1.8                gdb4hpc/4.14.7
+   PrgEnv-cray/8.3.3            cray-R/4.2.1.1                   cray-pmi/6.1.10               gdb4hpc/4.15.1
+   PrgEnv-cray/8.4.0            cray-R/4.2.1.2                   cray-pmi/6.1.12               gdb4hpc/4.16.4         (D)
+   PrgEnv-cray/8.6.0   (L,D)    cray-R/4.4.0            (D)      cray-pmi/6.1.15      (D)      intel-classic/2022.2.1
+   PrgEnv-gnu/8.3.3             cray-ccdb/4.12.13                cray-python/3.9.13.1          intel-classic/2023.1.0 (D)
+   PrgEnv-gnu/8.4.0             cray-ccdb/5.0.1                  cray-python/3.10.10           intel-oneapi/2022.2.1
+   PrgEnv-gnu/8.6.0    (D)      cray-ccdb/5.0.6         (D)      cray-python/3.11.7   (D)      intel-oneapi/2023.1.0
+   PrgEnv-intel/8.3.3           cray-cti/2.15.14                 cray-stat/4.11.13             intel/2022.2.1
+   PrgEnv-intel/8.4.0           cray-cti/2.16.0                  cray-stat/4.12.1              intel/2023.1.0
+   PrgEnv-intel/8.6.0  (D)      cray-cti/2.17.1                  cray-stat/4.12.5     (D)      iobuf/2.0.10
+   PrgEnv-nvhpc/8.3.3           cray-cti/2.17.2                  cray-zmqnet/1.3.1             nvidia/22.7
+   PrgEnv-nvhpc/8.4.0  (D)      cray-cti/2.18.1                  craype/2.7.19                 nvidia/23.3
+   PrgEnv-nvidia/8.3.3          cray-cti/2.19.1         (D)      craype/2.7.20                 nvidia/24.11           (D)
+   PrgEnv-nvidia/8.4.0          cray-dsmml/0.2.2                 craype/2.7.23                 papi/6.0.0.17
+   PrgEnv-nvidia/8.6.0 (D)      cray-dsmml/0.3.1        (L,D)    craype/2.7.34        (L,D)    papi/7.0.0.1
+   aocc/3.2.0                   cray-dyninst/12.1.1              craypkg-gen/1.3.28            papi/7.0.1.1
+   aocc/4.0.0                   cray-dyninst/12.3.0              craypkg-gen/1.3.30            papi/7.2.0.1           (D)
+   atp/3.14.16                  cray-dyninst/12.3.5     (D)      craypkg-gen/1.3.35   (D)      perftools-base/22.12.0
+   atp/3.14.18                  cray-libpals/1.2.5               cuda/10.2                     perftools-base/23.03.0
+   atp/3.15.1                   cray-libpals/1.2.11              cuda/11.0                     perftools-base/23.09.0
+   atp/3.15.6          (D)      cray-libpals/1.2.12     (D)      cuda/11.7                     perftools-base/25.03.0 (L,D)
+   cce/15.0.0                   cray-libsci/22.12.1.1            cuda/11.8                     sanitizers4hpc/1.0.4
+   cce/15.0.1                   cray-libsci/23.02.1.1            cuda/12.0                     sanitizers4hpc/1.1.1
+   cce/16.0.1                   cray-libsci/23.09.1.1            cuda/12.6            (D)      sanitizers4hpc/1.1.5   (D)
+   cce/19.0.0          (L,D)    cray-libsci_acc/25.03.0          gcc-native/12.3               valgrind4hpc/2.12.10
+   cpe-cuda/22.12               cray-mrnet/5.0.4                 gcc-native/13.2               valgrind4hpc/2.12.11
+   cpe-cuda/23.03               cray-mrnet/5.1.1                 gcc-native/14.2      (D)      valgrind4hpc/2.13.1
+   cpe-cuda/23.09      (D)      cray-mrnet/5.1.5        (D)      gcc/10.3.0                    valgrind4hpc/2.13.5    (D)
+   cpe/22.12                    cray-pals/1.2.5                  gcc/11.2.0
+
+----------------------------------- /opt/cray/pe/lmod/modulefiles/craype-targets/default ------------------------------------
+   craype-accel-amd-gfx908    craype-accel-nvidia90    craype-hugepages2M      craype-network-ofi (L)    craype-x86-spr
+   craype-accel-amd-gfx90a    craype-arm-grace         craype-hugepages32M     craype-network-ucx        craype-x86-trento
+   craype-accel-amd-gfx940    craype-hugepages128M     craype-hugepages4M      craype-x86-genoa          craype-x86-turin
+   craype-accel-amd-gfx942    craype-hugepages16M      craype-hugepages512M    craype-x86-milan-x
+   craype-accel-host          craype-hugepages1G       craype-hugepages64M     craype-x86-milan   (L)
+   craype-accel-nvidia70      craype-hugepages256M     craype-hugepages8M      craype-x86-rome
+   craype-accel-nvidia80      craype-hugepages2G       craype-network-none     craype-x86-spr-hbm
+
+----------------------------------- /lustrefs/disk/modules/lmod/modulefiles/mix_compilers -----------------------------------
+   aocc-mixed/5.0.0 (D)    intel-mixed/2025.1 (D)    intel-oneapi-mixed/2025.1 (D)
+
+--------------------------------------- /lustrefs/disk/modules/lmod/modulefiles/core ----------------------------------------
+   aocc/5.0.0 (D)    intel-oneapi/2025.1 (D)    intel/2025.1 (D)
+
+--------------------------------------------------- /opt/cray/modulefiles ---------------------------------------------------
+   cudatoolkit/24.11_11.8        libfabric/1.15.2.0          xpmem/2.11.3-1.3_gdbda01a1eb3d (L)
+   cudatoolkit/24.11_12.6 (D)    libfabric/1.22.0   (L,D)
+
+  Where:
+   Aliases:  Aliases exist: foo/1.2.3 (1.2) means that "module load foo/1.2" will load foo/1.2.3
+   D:        Default Module
+   L:        Module is loaded
+
+If the avail list is too long consider trying:
+
+"module --default avail" or "ml -d av" to just list the default modules.
+"module overview" or "ml ov" to display the number of modules for each name.
+
+Use "module spider" to find all possible modules and extensions.
+Use "module keyword key1 key2 ..." to search for all possible modules matching any of the "keys".
+
+

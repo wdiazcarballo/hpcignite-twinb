@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --job-name=exp1-platform
-#SBATCH --output=exp1_%j.out
-#SBATCH --error=exp1_%j.err
+#SBATCH --output=exp1_%j/exp1_%j.out
+#SBATCH --error=exp1_%j/exp1_%j.err
 #SBATCH --time=00:30:00
 #SBATCH --nodes=1
 #SBATCH --ntasks=2
@@ -31,15 +31,21 @@ echo "Started: $(date)"
 echo "=========================================="
 
 # ---------------------------
-# Create output directory (simple structure)
+# Create output directory (must exist before SLURM writes logs)
 # ---------------------------
 RESULTS_DIR=exp1_${SLURM_JOB_ID}
-mkdir -p $RESULTS_DIR
+# Note: Directory must already exist for SLURM to write .out/.err files there
 
 # ---------------------------
 # Load environment
 # ---------------------------
 module load cray-python/3.10.10
+module load cuda/11.8
+
+echo "Loaded modules:"
+echo "  - cray-python/3.10.10"
+echo "  - cuda/11.8"
+echo ""
 
 # Activate shared virtual environment
 VENV_PATH=/project/lt200291-ignite/Project_chomwong/.venv
@@ -97,6 +103,20 @@ echo ""
 echo "Key packages:"
 pip list | grep -E "torch|numpy|pandas|PyYAML" || echo "Some packages not found"
 echo ""
+
+# Check if torch is available
+if ! python -c "import torch" 2>/dev/null; then
+    echo "=========================================="
+    echo "WARNING: PyTorch (torch) is not installed!"
+    echo "=========================================="
+    echo "Installing PyTorch to shared environment..."
+    pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+    echo ""
+    echo "PyTorch installed. Verifying..."
+    python -c "import torch; print(f'PyTorch version: {torch.__version__}')"
+    python -c "import torch; print(f'CUDA available: {torch.cuda.is_available()}')"
+    echo ""
+fi
 
 # ---------------------------
 # Test 1: GPU Compute Capability
@@ -374,15 +394,29 @@ echo "Load GPU metrics collected"
 echo ""
 
 # ---------------------------
+# Move output files into results directory
+# ---------------------------
+if [ -f "exp1_${SLURM_JOB_ID}.out" ]; then
+    mv exp1_${SLURM_JOB_ID}.out $RESULTS_DIR/
+fi
+if [ -f "exp1_${SLURM_JOB_ID}.err" ]; then
+    mv exp1_${SLURM_JOB_ID}.err $RESULTS_DIR/
+fi
+
+# ---------------------------
 # Summary
 # ---------------------------
 echo "=========================================="
 echo "EXPERIMENT 1 COMPLETE"
 echo "=========================================="
-echo "Results saved to: $RESULTS_DIR"
+echo "All results in: $RESULTS_DIR"
 echo ""
 echo "Files generated:"
 ls -lh $RESULTS_DIR/
 echo ""
 echo "Completed: $(date)"
 echo "=========================================="
+echo ""
+echo "To analyze results:"
+echo "  cd dream26"
+echo "  ls -la $RESULTS_DIR/"

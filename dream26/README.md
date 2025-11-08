@@ -14,14 +14,16 @@ The Twin-B system couples EnergyPlus building energy modeling with Mesa agent-ba
 cd dream26
 
 # Experiment 1: Platform capability profiling (~30 minutes)
-sbatch experiment1_platform_capability.slurm
+./submit_exp1.sh
 
 # Experiment 2: Baseline simulation with profiling (~2 hours)
-sbatch experiment2_baseline_simulation.slurm
+./submit_exp2.sh
 
 # Monitor jobs
 squeue -u $USER
 ```
+
+**Note:** Helper scripts (`submit_exp1.sh`, `submit_exp2.sh`) automatically create directories and organize outputs.
 
 ### 2. Check Results
 

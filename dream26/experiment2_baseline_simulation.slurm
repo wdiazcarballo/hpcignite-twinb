@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --job-name=exp2-baseline
-#SBATCH --output=exp2_%j.out
-#SBATCH --error=exp2_%j.err
+#SBATCH --output=exp2_%j/exp2_%j.out
+#SBATCH --error=exp2_%j/exp2_%j.err
 #SBATCH --time=02:00:00
 #SBATCH --nodes=1
 #SBATCH --ntasks=2
@@ -41,12 +41,18 @@ PROJECT_DIR=/project/lt200291-ignite/Project_chomwong/project
 # Create output directory (simple structure in dream26)
 # ---------------------------
 RESULTS_DIR=$PROJECT_DIR/dream26/exp2_${SLURM_JOB_ID}
-mkdir -p $RESULTS_DIR
+# Note: Directory must already exist for SLURM to write .out/.err files there
 
 # ---------------------------
 # Load environment
 # ---------------------------
 module load cray-python/3.10.10
+module load cuda/11.8
+
+echo "Loaded modules:"
+echo "  - cray-python/3.10.10"
+echo "  - cuda/11.8"
+echo ""
 
 # Activate shared virtual environment
 VENV_PATH=/project/lt200291-ignite/Project_chomwong/.venv
@@ -57,6 +63,16 @@ else
     echo "ERROR: Shared virtual environment not found at $VENV_PATH/bin/activate"
     echo "Please ensure pwongta has set up the shared environment."
     exit 1
+fi
+
+# Check if torch is available
+if ! python -c "import torch" 2>/dev/null; then
+    echo "=========================================="
+    echo "WARNING: PyTorch (torch) is not installed!"
+    echo "=========================================="
+    echo "Installing PyTorch to shared environment..."
+    pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+    echo "PyTorch installed."
 fi
 
 # ---------------------------
@@ -450,6 +466,17 @@ nsys-ui twinb_baseline_profile.nsys-rep
 EOF
 
 cat $RESULTS_DIR/EXPERIMENT_SUMMARY.md
+
+# ---------------------------
+# Move output files into results directory
+# ---------------------------
+cd $PROJECT_DIR/dream26
+if [ -f "exp2_${SLURM_JOB_ID}.out" ]; then
+    mv exp2_${SLURM_JOB_ID}.out $RESULTS_DIR/
+fi
+if [ -f "exp2_${SLURM_JOB_ID}.err" ]; then
+    mv exp2_${SLURM_JOB_ID}.err $RESULTS_DIR/
+fi
 
 echo ""
 echo "=========================================="
