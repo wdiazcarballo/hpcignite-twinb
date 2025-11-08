@@ -1,0 +1,50 @@
+{
+  "energy_analysis": {
+    "compute": {
+      "duration_sec": 6.02,
+      "avg_power_w": 76.19214285714285,
+      "max_power_w": 305.03,
+      "min_power_w": 51.64,
+      "energy_joules": 458.6767,
+      "energy_kwh": 0.00012741019444444443,
+      "samples": 14
+    },
+    "large_bandwidth": {
+      "duration_sec": 6.022,
+      "avg_power_w": 58.00714285714286,
+      "max_power_w": 72.73,
+      "min_power_w": 51.64,
+      "energy_joules": 349.31901428571433,
+      "energy_kwh": 9.703305952380954e-05,
+      "samples": 14
+    },
+    "mixed": {
+      "duration_sec": 6.019,
+      "avg_power_w": 78.41642857142857,
+      "max_power_w": 331.38,
+      "min_power_w": 51.64,
+      "energy_joules": 471.98848357142856,
+      "energy_kwh": 0.0001311079121031746,
+      "samples": 14
+    },
+    "nccl": {
+      "duration_sec": 14.023,
+      "avg_power_w": 55.744666666666674,
+      "max_power_w": 62.63,
+      "min_power_w": 51.64,
+      "energy_joules": 781.7074606666667,
+      "energy_kwh": 0.0002171409612962963,
+      "samples": 30
+    },
+    "small_transfers": {
+      "duration_sec": 5.021,
+      "avg_power_w": 56.509166666666665,
+      "max_power_w": 60.17,
+      "min_power_w": 51.94,
+      "energy_joules": 283.73252583333334,
+      "energy_kwh": 7.881459050925926e-05,
+      "samples": 12
+    }
+  },
+  "methodology": "Energy (J) = Average Power (W) \u00d7 Duration (s)"
+}
