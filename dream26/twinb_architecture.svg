@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" width="1400" height="900">
+  <defs>
+    <style>
+      .title { font-family: 'Arial', sans-serif; font-size: 24px; font-weight: bold; fill: #1a1a1a; }
+      .subtitle { font-family: 'Arial', sans-serif; font-size: 14px; fill: #666; }
+      .component-title { font-family: 'Arial', sans-serif; font-size: 16px; font-weight: bold; fill: #1a1a1a; }
+      .component-text { font-family: 'Arial', sans-serif; font-size: 12px; fill: #333; }
+      .label-text { font-family: 'Arial', sans-serif; font-size: 11px; fill: #444; }
+      .data-label { font-family: 'Arial', sans-serif; font-size: 10px; fill: #0066cc; font-weight: bold; }
+      .timing-text { font-family: 'Arial', sans-serif; font-size: 9px; fill: #666; font-style: italic; }
+
+      .energyplus-box { fill: #e8f4f8; stroke: #0077be; stroke-width: 2; }
+      .rank-box { fill: #f0f8e8; stroke: #4caf50; stroke-width: 2; }
+      .mesa-box { fill: #fff8dc; stroke: #ff9800; stroke-width: 2; }
+      .queue-box { fill: #fce4ec; stroke: #e91e63; stroke-width: 2; }
+      .nccl-box { fill: #f3e5f5; stroke: #9c27b0; stroke-width: 2; }
+
+      .arrow { fill: none; stroke-width: 2; marker-end: url(#arrowhead); }
+      .ep-arrow { stroke: #0077be; }
+      .mesa-arrow { stroke: #ff9800; }
+      .nccl-arrow { stroke: #9c27b0; }
+      .data-arrow { stroke: #4caf50; }
+
+      .dashed { stroke-dasharray: 5,5; }
+    </style>
+
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="currentColor" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="700" y="35" text-anchor="middle" class="title">Twin-B Co-Simulation Architecture</text>
+  <text x="700" y="55" text-anchor="middle" class="subtitle">EnergyPlus Building Energy + Mesa Agent-Based Modeling on PyTorch DDP</text>
+
+  <!-- Legend -->
+  <g transform="translate(50, 80)">
+    <text x="0" y="0" class="label-text" font-weight="bold">Legend:</text>
+    <line x1="10" y1="10" x2="50" y2="10" class="arrow ep-arrow" />
+    <text x="55" y="14" class="label-text">EnergyPlus API</text>
+
+    <line x1="150" y1="10" x2="190" y2="10" class="arrow mesa-arrow" />
+    <text x="195" y="14" class="label-text">Mesa Agent Logic</text>
+
+    <line x1="310" y1="10" x2="350" y2="10" class="arrow nccl-arrow" />
+    <text x="355" y="14" class="label-text">NCCL Communication</text>
+
+    <line x1="490" y1="10" x2="530" y2="10" class="arrow data-arrow" />
+    <text x="535" y="14" class="label-text">Data Transfer</text>
+  </g>
+
+  <!-- EnergyPlus Component -->
+  <g transform="translate(100, 150)">
+    <rect class="energyplus-box" width="250" height="180" rx="8" />
+    <text x="125" y="30" text-anchor="middle" class="component-title">EnergyPlus 25.1.0</text>
+    <text x="125" y="50" text-anchor="middle" class="subtitle">(Thread on Rank 0)</text>
+
+    <text x="15" y="75" class="component-text">• Building Model: Boonchoo</text>
+    <text x="15" y="95" class="component-text">• 73 Thermal Zones</text>
+    <text x="15" y="115" class="component-text">• 288 Timesteps (24h × 12)</text>
+    <text x="15" y="135" class="component-text">• 5-minute intervals</text>
+    <text x="15" y="155" class="component-text">• Variables: Zone Air Temp</text>
+    <text x="15" y="170" class="component-text">• Actuators: Cooling Setpoints</text>
+  </g>
+
+  <!-- Queue Component -->
+  <g transform="translate(450, 220)">
+    <rect class="queue-box" width="180" height="100" rx="8" />
+    <text x="90" y="25" text-anchor="middle" class="component-title">Queue</text>
+    <text x="90" y="45" text-anchor="middle" class="subtitle">(callback_queue)</text>
+
+    <text x="15" y="65" class="component-text">• Thread-safe Queue</text>
+    <text x="15" y="82" class="component-text">• 73 zone temps/timestep</text>
+  </g>
+
+  <!-- Rank 0 / GPU 0 Component -->
+  <g transform="translate(750, 150)">
+    <rect class="rank-box" width="280" height="280" rx="8" />
+    <text x="140" y="30" text-anchor="middle" class="component-title">Rank 0 (GPU 0)</text>
+    <text x="140" y="50" text-anchor="middle" class="subtitle">NVIDIA A100-SXM4-40GB</text>
+
+    <!-- Mesa Model inside Rank 0 -->
+    <g transform="translate(15, 60)">
+      <rect class="mesa-box" width="250" height="130" rx="5" />
+      <text x="125" y="20" text-anchor="middle" class="component-title">Mesa Model</text>
+      <text x="10" y="40" class="component-text">• 938 agents (50% of 1,875)</text>
+      <text x="10" y="57" class="component-text">• Agent types: Student, Staff,</text>
+      <text x="20" y="72" class="component-text">Cleaner, Warden, Visitor, Policy</text>
+      <text x="10" y="90" class="component-text">• Each agent: preferred_temp,</text>
+      <text x="20" y="105" class="component-text">comfort_tolerance, using_ac</text>
+      <text x="10" y="122" class="component-text">• Compute setpoint requests</text>
+    </g>
+
+    <text x="15" y="215" class="component-text">• EnergyPlus orchestration</text>
+    <text x="15" y="232" class="component-text">• NCCL all_gather coordination</text>
+    <text x="15" y="249" class="component-text">• Apply merged setpoints to EP</text>
+    <text x="15" y="266" class="component-text">• Export results to CSV</text>
+  </g>
+
+  <!-- Rank 1 / GPU 1 Component -->
+  <g transform="translate(1070, 150)">
+    <rect class="rank-box" width="280" height="280" rx="8" />
+    <text x="140" y="30" text-anchor="middle" class="component-title">Rank 1 (GPU 1)</text>
+    <text x="140" y="50" text-anchor="middle" class="subtitle">NVIDIA A100-SXM4-40GB</text>
+
+    <!-- Mesa Model inside Rank 1 -->
+    <g transform="translate(15, 60)">
+      <rect class="mesa-box" width="250" height="130" rx="5" />
+      <text x="125" y="20" text-anchor="middle" class="component-title">Mesa Model</text>
+      <text x="10" y="40" class="component-text">• 937 agents (50% of 1,875)</text>
+      <text x="10" y="57" class="component-text">• Agent types: Student, Staff,</text>
+      <text x="20" y="72" class="component-text">Cleaner, Warden, Visitor, Policy</text>
+      <text x="10" y="90" class="component-text">• Each agent: preferred_temp,</text>
+      <text x="20" y="105" class="component-text">comfort_tolerance, using_ac</text>
+      <text x="10" y="122" class="component-text">• Compute setpoint requests</text>
+    </g>
+
+    <text x="15" y="215" class="component-text">• Agent-only processing</text>
+    <text x="15" y="232" class="component-text">• NCCL all_gather participant</text>
+    <text x="15" y="249" class="component-text">• No EnergyPlus interaction</text>
+  </g>
+
+  <!-- NCCL Communication Box -->
+  <g transform="translate(750, 480)">
+    <rect class="nccl-box" width="600" height="100" rx="8" />
+    <text x="300" y="25" text-anchor="middle" class="component-title">NCCL All-Gather Communication</text>
+    <text x="300" y="45" text-anchor="middle" class="subtitle">PCIe Gen4 16x + NVLink (400 GB/s)</text>
+
+    <text x="15" y="65" class="component-text">• Collects setpoint requests from both GPUs (73 zones × 2 ranks)</text>
+    <text x="15" y="82" class="component-text">• Merge by taking minimum setpoint per zone (coldest agent preference wins)</text>
+  </g>
+
+  <!-- Data Flow Timeline -->
+  <g transform="translate(100, 650)">
+    <text x="0" y="0" class="component-title">Simulation Loop (288 iterations × 5 min = 24 hours)</text>
+
+    <!-- Timeline boxes -->
+    <rect x="0" y="15" width="250" height="60" fill="#e8f4f8" stroke="#0077be" stroke-width="1" rx="4" />
+    <text x="125" y="35" text-anchor="middle" class="label-text" font-weight="bold">① EnergyPlus Callback</text>
+    <text x="125" y="50" text-anchor="middle" class="timing-text">Read 73 zone temps</text>
+    <text x="125" y="63" text-anchor="middle" class="timing-text">Put in callback_queue</text>
+
+    <rect x="280" y="15" width="250" height="60" fill="#fff8dc" stroke="#ff9800" stroke-width="1" rx="4" />
+    <text x="405" y="35" text-anchor="middle" class="label-text" font-weight="bold">② Agent Decision</text>
+    <text x="405" y="50" text-anchor="middle" class="timing-text">Each agent: using_ac check</text>
+    <text x="405" y="63" text-anchor="middle" class="timing-text">Compute setpoint requests</text>
+
+    <rect x="560" y="15" width="250" height="60" fill="#f3e5f5" stroke="#9c27b0" stroke-width="1" rx="4" />
+    <text x="685" y="35" text-anchor="middle" class="label-text" font-weight="bold">③ NCCL All-Gather</text>
+    <text x="685" y="50" text-anchor="middle" class="timing-text">Collect from 2 GPUs</text>
+    <text x="685" y="63" text-anchor="middle" class="timing-text">Merge min setpoints</text>
+
+    <rect x="840" y="15" width="250" height="60" fill="#e8f4f8" stroke="#0077be" stroke-width="1" rx="4" />
+    <text x="965" y="35" text-anchor="middle" class="label-text" font-weight="bold">④ Apply to EnergyPlus</text>
+    <text x="965" y="50" text-anchor="middle" class="timing-text">Set cooling actuators</text>
+    <text x="965" y="63" text-anchor="middle" class="timing-text">Advance to next timestep</text>
+
+    <!-- Flow arrows -->
+    <path d="M 250 45 L 280 45" class="arrow ep-arrow" />
+    <path d="M 530 45 L 560 45" class="arrow mesa-arrow" />
+    <path d="M 810 45 L 840 45" class="arrow nccl-arrow" />
+  </g>
+
+  <!-- Main data flow arrows -->
+  <!-- EnergyPlus to Queue -->
+  <path d="M 350 240 L 450 260" class="arrow ep-arrow" />
+  <text x="375" y="235" class="data-label">Zone Temps</text>
+  <text x="375" y="248" class="timing-text">(73 floats)</text>
+
+  <!-- Queue to Rank 0 -->
+  <path d="M 630 270 L 750 280" class="arrow data-arrow" />
+  <text x="665" y="265" class="data-label">queue.get()</text>
+  <text x="665" y="278" class="timing-text">(blocking)</text>
+
+  <!-- Rank 0 to EnergyPlus (setpoints) -->
+  <path d="M 750 380 L 350 320" class="arrow ep-arrow" />
+  <text x="520" y="340" class="data-label">Apply Setpoints</text>
+  <text x="520" y="353" class="timing-text">(73 floats)</text>
+
+  <!-- Rank 0 to NCCL -->
+  <path d="M 890 430 L 890 480" class="arrow nccl-arrow" />
+  <text x="820" y="455" class="data-label">Setpoint Requests</text>
+  <text x="820" y="468" class="timing-text">(37.5 bytes avg)</text>
+
+  <!-- Rank 1 to NCCL -->
+  <path d="M 1210 430 L 1210 480" class="arrow nccl-arrow" />
+  <text x="1140" y="455" class="data-label">Setpoint Requests</text>
+  <text x="1140" y="468" class="timing-text">(37.5 bytes avg)</text>
+
+  <!-- NCCL back to Rank 0 -->
+  <path d="M 950 530 L 950 480" class="arrow nccl-arrow dashed" />
+  <text x="960" y="505" class="data-label">Merged Setpoints</text>
+
+  <!-- NCCL back to Rank 1 -->
+  <path d="M 1150 530 L 1150 480" class="arrow nccl-arrow dashed" />
+  <text x="1160" y="505" class="data-label">Merged Setpoints</text>
+
+  <!-- Performance Metrics Box -->
+  <g transform="translate(100, 760)">
+    <rect width="1250" height="100" fill="#f5f5f5" stroke="#999" stroke-width="1" rx="8" />
+    <text x="625" y="25" text-anchor="middle" class="component-title">Performance Characteristics</text>
+
+    <text x="20" y="50" class="component-text" font-weight="bold">Compute:</text>
+    <text x="100" y="50" class="component-text">18,835 GFLOPS (96.6% peak), 247 GFLOPS/Watt @ 76.2W</text>
+
+    <text x="20" y="68" class="component-text" font-weight="bold">Memory BW:</text>
+    <text x="100" y="68" class="component-text">Large (1MB): 9.2 GB/s H2D, 64.3 GB/s D2D | Small (37B): 1.64 MB/s (0.005% peak), 20.89 μs fixed overhead</text>
+
+    <text x="20" y="86" class="component-text" font-weight="bold">Communication:</text>
+    <text x="100" y="86" class="component-text">NCCL All-Gather: 0.03-1.87 ms | Total: 547K H2D transfers, 6,289 small ops → 4.47s cudaStreamSync (66.3% runtime)</text>
+  </g>
+
+</svg>
