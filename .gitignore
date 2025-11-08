@@ -1,0 +1,68 @@
+__pycache__/
+*.pyc
+*.csv
+*.out
+*.err
+mesa_env/
+project/EnergyPlus_BP_Boonchoo/output/
+energyplus/*.tar.gz
+project/core
+
+# ---- Python basics ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# ---- Virtual environments / tooling ----
+env/
+env*/
+.venv/
+.conda/
+.terraform/
+.cache/
+
+# ---- Jupyter ----
+.ipynb_checkpoints/
+
+# ---- Logs / temporary job artifacts ----
+logs/
+*.log
+*.out
+*.err
+
+# ---- HPC / profiler outputs (Nsight Systems, sqlite) ----
+*.nsys-rep
+*.sqlite
+# common Nsight JSON summaries
+*nvtx_sum*.json
+*cuda_api*.json
+*cuda_gpu*.json
+*cuda_mem*.json
+*openmp*_sum*.json
+*osrt*_sum*.json
+
+# Your specific bulky trace sets
+boonchu_trace*/
+boonchu_trace_*
+
+# ---- EnergyPlus + simulation artifacts ----
+eplusout/
+outEnergyPlus*/
+eplusout.*
+expanded.idf
+
+# Optionally ignore big input/output bundles (uncomment if desired)
+# EnergyPlus_BP_Boonchoo/
+
+# ---- Generated results / summaries ----
+outputs/
+summary/
+mesa_out_result/
+# If this CSV is generated and not source, ignore it
+mesa_agent_results.csv
+
+# ---- Misc system files ----
+core
+.DS_Store
+Thumbs.db
+
