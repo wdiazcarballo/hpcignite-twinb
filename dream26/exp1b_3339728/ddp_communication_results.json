@@ -1,0 +1,24 @@
+{
+  "rank": 0,
+  "world_size": 2,
+  "backend": "nccl",
+  "device": "cuda:0",
+  "communication_overhead": {
+    "size_100": {
+      "allgather_time_ms": 2.952427864074707,
+      "allreduce_time_ms": 0.041425228118896484
+    },
+    "size_1000": {
+      "allgather_time_ms": 0.07356643676757812,
+      "allreduce_time_ms": 0.029346942901611328
+    },
+    "size_10000": {
+      "allgather_time_ms": 0.07440805435180664,
+      "allreduce_time_ms": 0.029704570770263672
+    },
+    "size_100000": {
+      "allgather_time_ms": 0.0790548324584961,
+      "allreduce_time_ms": 0.04642009735107422
+    }
+  }
+}

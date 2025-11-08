@@ -1,0 +1,29 @@
+{
+  "memory_bandwidth": {
+    "1MB": {
+      "host_to_device_mbps": 1547.7136531365313,
+      "device_to_host_mbps": 1609.4796623177283,
+      "device_to_device_mbps": 11586.475138121546
+    },
+    "10MB": {
+      "host_to_device_mbps": 13294.148969889065,
+      "device_to_host_mbps": 4670.71714922049,
+      "device_to_device_mbps": 59158.02538787024
+    },
+    "100MB": {
+      "host_to_device_mbps": 12797.656679074877,
+      "device_to_host_mbps": 6913.0801687763715,
+      "device_to_device_mbps": 251306.4110245656
+    },
+    "500MB": {
+      "host_to_device_mbps": 13013.422027514225,
+      "device_to_host_mbps": 7535.986488671686,
+      "device_to_device_mbps": 489645.5755311697
+    },
+    "1000MB": {
+      "host_to_device_mbps": 13540.845579689558,
+      "device_to_host_mbps": 7519.517236804598,
+      "device_to_device_mbps": 498668.8859826418
+    }
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "small_transfer_overhead": {
+    "1B": {
+      "bytes": 4,
+      "elements": 1,
+      "host_to_device_us": 21.642208099365234,
+      "device_to_host_us": 20.85137367248535,
+      "device_to_device_us": 21.02518081665039,
+      "host_to_device_mbps": 0.17626192522087822,
+      "device_to_host_mbps": 0.1829470482637182,
+      "device_to_device_mbps": 0.1814346948495226
+    },
+    "10B": {
+      "bytes": 8,
+      "elements": 2,
+      "host_to_device_us": 21.086931228637695,
+      "device_to_host_us": 20.52164077758789,
+      "device_to_device_us": 17.12322235107422,
+      "host_to_device_mbps": 0.36180677257052407,
+      "device_to_host_mbps": 0.37177312545019403,
+      "device_to_device_mbps": 0.44555834029518243
+    },
+    "37B": {
+      "bytes": 36,
+      "elements": 9,
+      "host_to_device_us": 20.890474319458008,
+      "device_to_host_us": 21.046876907348633,
+      "device_to_device_us": 17.1356201171875,
+      "host_to_device_mbps": 1.6434416407025714,
+      "device_to_host_mbps": 1.6312289724390272,
+      "device_to_device_mbps": 2.0035618878005343
+    },
+    "100B": {
+      "bytes": 100,
+      "elements": 25,
+      "host_to_device_us": 20.54309844970703,
+      "device_to_host_us": 20.27106285095215,
+      "device_to_device_us": 16.340255737304688,
+      "host_to_device_mbps": 4.642310013462699,
+      "device_to_host_mbps": 4.704609341001847,
+      "device_to_device_mbps": 5.836348780203105
+    },
+    "1024B": {
+      "bytes": 1024,
+      "elements": 256,
+      "host_to_device_us": 20.25318145751953,
+      "device_to_host_us": 19.789934158325195,
+      "device_to_device_us": 15.926122665405275,
+      "host_to_device_mbps": 48.217733201487974,
+      "device_to_host_mbps": 49.3464249141618,
+      "device_to_device_mbps": 61.318283207832444
+    },
+    "10240B": {
+      "bytes": 10240,
+      "elements": 2560,
+      "host_to_device_us": 21.306514739990234,
+      "device_to_host_us": 21.158218383789062,
+      "device_to_device_us": 15.9609317779541,
+      "host_to_device_mbps": 458.3398607971712,
+      "device_to_host_mbps": 461.5523302983864,
+      "device_to_device_mbps": 611.8455448502502
+    },
+    "102400B": {
+      "bytes": 102400,
+      "elements": 25600,
+      "host_to_device_us": 32.08136558532715,
+      "device_to_host_us": 31.663894653320312,
+      "device_to_device_us": 16.317129135131836,
+      "host_to_device_mbps": 3044.0178657689194,
+      "device_to_host_mbps": 3084.1515571351124,
+      "device_to_device_mbps": 5984.891655342714
+    },
+    "1048576B": {
+      "bytes": 1048576,
+      "elements": 262144,
+      "host_to_device_us": 108.44945907592773,
+      "device_to_host_us": 124.16362762451172,
+      "device_to_device_us": 15.541791915893555,
+      "host_to_device_mbps": 9220.885088047135,
+      "device_to_host_mbps": 8053.888398171974,
+      "device_to_device_mbps": 64342.64500590609
+    }
+  }
+}

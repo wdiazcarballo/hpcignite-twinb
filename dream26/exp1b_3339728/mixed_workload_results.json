@@ -1,0 +1,9 @@
+{
+  "mixed_workload": {
+    "compute_only_ms": 771.0981369018555,
+    "transfer_only_ms": 1.8525123596191406,
+    "mixed_workload_ms": 725.407600402832,
+    "overhead_ms": -47.54304885864258,
+    "overhead_pct": -6.165628806945724
+  }
+}
