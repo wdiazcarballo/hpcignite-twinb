@@ -49,12 +49,12 @@ mkdir -p $RESULTS_DIR
 module load cray-python/3.10.10
 
 # Activate shared virtual environment
-VENV_PATH=/project/lt200291-ignite/Project_chomwong/.venv/mesa_env
+VENV_PATH=/project/lt200291-ignite/Project_chomwong/.venv
 if [ -f $VENV_PATH/bin/activate ]; then
     source $VENV_PATH/bin/activate
-    echo "Activated shared mesa_env virtual environment from $VENV_PATH"
+    echo "Activated shared virtual environment from $VENV_PATH"
 else
-    echo "ERROR: Shared virtual environment not found at $VENV_PATH"
+    echo "ERROR: Shared virtual environment not found at $VENV_PATH/bin/activate"
     echo "Please ensure pwongta has set up the shared environment."
     exit 1
 fi

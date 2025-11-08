@@ -30,26 +30,22 @@ The initial experiment (`exp1-fail1/`) revealed several issues that have been fi
 
 ### Required: Shared Python Environment
 
-**pwongta** needs to run these commands **once** to set up the shared environment:
+**✅ Already set up by pwongta!**
 
+The shared environment is located at:
+```
+/project/lt200291-ignite/Project_chomwong/.venv/
+```
+
+Activate with:
 ```bash
-# 1️⃣ Load Python module
-module load cray-python/3.10.10
+source /project/lt200291-ignite/Project_chomwong/.venv/bin/activate
+```
 
-# 2️⃣ Create shared directory
-mkdir -p /project/lt200291-ignite/Project_chomwong/.venv
-
-# 3️⃣ Copy existing environment
-cp -a ~/mesa_env /project/lt200291-ignite/Project_chomwong/.venv/
-
-# 4️⃣ Set group permissions
-chgrp -R lt200291 /project/lt200291-ignite/Project_chomwong/.venv
-chmod -R g+rwXs /project/lt200291-ignite/Project_chomwong/.venv
-setfacl -R -m g:lt200291:rwx /project/lt200291-ignite/Project_chomwong/.venv
-setfacl -R -d -m g:lt200291:rwx /project/lt200291-ignite/Project_chomwong/.venv
-
-# 5️⃣ Verify
-ls -ld /project/lt200291-ignite/Project_chomwong/.venv/mesa_env
+Verification:
+```bash
+ls -ld /project/lt200291-ignite/Project_chomwong/.venv/bin
+# Should show: drwxrwsr-x+ 2 pwongta lt200291 4096 Oct 23 16:52 ...
 ```
 
 ## 🚀 Running Experiments
