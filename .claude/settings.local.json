@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Bash(~/venv/bin/python:*)"
+      "Bash(~/venv/bin/python:*)",
+      "Bash(/home/wdc/venv/bin/python:*)",
+      "Bash(/home/wdc/venv/bin/pip install:*)"
     ],
     "deny": [],
     "ask": []
